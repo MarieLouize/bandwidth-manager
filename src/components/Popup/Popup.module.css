@@ -1,0 +1,78 @@
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(225, 239, 234, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popupCard {
+  background-color: var(--bg);
+  box-shadow: 12px 12px 24px var(--shadow-dark), 
+             -12px -12px 24px var(--shadow-light);
+  border-radius: 24px;
+  padding: 30px;
+  width: 100%;
+  max-width: 450px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.overlay.show .popupCard {
+  transform: translateY(0);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--shadow-dark);
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: var(--danger);
+}
+
+.content {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}

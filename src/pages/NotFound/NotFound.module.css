@@ -1,0 +1,113 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--bg);
+  padding: 20px;
+  text-align: center;
+}
+
+.errorCode {
+  font-size: 8rem;
+  font-weight: 900;
+  color: var(--bg);
+  text-shadow: 10px 10px 20px var(--shadow-dark), 
+              -10px -10px 20px var(--shadow-light);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.animationWrapper {
+  position: relative;
+  height: 100px;
+  width: 200px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cable {
+  width: 60px;
+  height: 20px;
+  background-color: var(--bg);
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px var(--shadow-dark), 
+             -4px -4px 8px var(--shadow-light);
+  position: relative;
+}
+
+.cable::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  top: 5px;
+  right: -5px;
+  box-shadow: 0 0 10px var(--accent);
+  animation: spark 1.5s infinite;
+}
+
+.cableLeft { animation: floatLeft 3s ease-in-out infinite; }
+.cableRight { animation: floatRight 3s ease-in-out infinite; }
+
+@keyframes spark {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes floatLeft {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(-10px) rotate(-5deg); }
+}
+
+@keyframes floatRight {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(10px) rotate(5deg); }
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.message {
+  color: var(--text-light);
+  max-width: 400px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.homeBtn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--bg);
+  color: var(--accent);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 6px 6px 12px var(--shadow-dark), 
+             -6px -6px 12px var(--shadow-light);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.homeBtn:hover {
+  transform: translateY(-3px);
+  color: var(--text);
+}
+
+.homeBtn:active {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light);
+  transform: translateY(0);
+}

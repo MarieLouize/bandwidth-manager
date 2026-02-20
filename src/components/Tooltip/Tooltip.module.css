@@ -1,0 +1,57 @@
+.tooltipContainer {
+  position: relative;
+  display: block; /* Changed to block so it wraps inputs perfectly */
+  width: 100%;
+}
+
+.tooltipBubble {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 4px 4px 8px var(--shadow-dark), 
+             -4px -4px 8px var(--shadow-light);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 500;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tooltipBubble::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--bg) transparent transparent transparent;
+}
+
+.tooltipContainer:hover .tooltipBubble:not(.forceHidden),
+.tooltipContainer:focus-within .tooltipBubble:not(.forceHidden),
+.tooltipBubble.forceVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltipBubble.error {
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.tooltipBubble.error::after {
+  border-top-color: var(--danger);
+}

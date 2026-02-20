@@ -1,0 +1,225 @@
+.pageWrapper {
+  padding: 20px;
+  max-width: 1000px; /* Keep form contained for readability */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.pageTitle {
+  font-size: 1.8rem;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.pageSub {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* --- Form Sections --- */
+.sectionCard {
+  background-color: var(--bg);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 12px 12px 24px var(--shadow-dark), 
+             -12px -12px 24px var(--shadow-light);
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text);
+  border-bottom: 2px solid var(--shadow-dark);
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rowGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* --- Inputs --- */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.inputField, .selectField {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), 
+              inset -6px -6px 12px var(--shadow-light);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.inputField:focus, .selectField:focus {
+  box-shadow: inset 8px 8px 16px var(--shadow-dark), 
+              inset -8px -8px 16px var(--shadow-light);
+}
+
+.inputField.error, .selectField.error {
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), 
+              inset -6px -6px 12px var(--shadow-light),
+              0 0 0 2px var(--danger);
+}
+
+.selectField {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23528072' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.inputHelp {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* --- Multi-Email Input Simulation --- */
+.emailWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.emailInputRow {
+  display: flex;
+  gap: 10px;
+}
+
+.addBtn {
+  padding: 0 15px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 4px 4px 10px rgba(27, 59, 111, 0.3);
+}
+
+.emailList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.emailPill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--bg);
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px var(--shadow-dark), 
+             -3px -3px 6px var(--shadow-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.removeBtn {
+  background: none;
+  border: none;
+  color: var(--danger);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* --- Actions & Footer --- */
+.actionRow {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 15px;
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 2px solid var(--shadow-dark);
+}
+
+.btn {
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.resetBtn {
+  background-color: var(--bg);
+  color: var(--danger);
+  box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+}
+
+.resetBtn:active {
+  box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+}
+
+.saveBtn {
+  background-color: var(--accent);
+  color: #fff;
+  box-shadow: 4px 4px 10px rgba(27, 59, 111, 0.3);
+}
+
+.saveBtn:active {
+  transform: translateY(2px);
+  box-shadow: 2px 2px 5px rgba(27, 59, 111, 0.4);
+}
+
+.metaFooter {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .pageWrapper { padding: 30px; }
+  .rowGrid { grid-template-columns: 1fr 1fr; }
+  .actionRow { flex-direction: row; justify-content: space-between; align-items: center; }
+  .btn { width: auto; }
+}

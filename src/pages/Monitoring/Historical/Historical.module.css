@@ -1,0 +1,297 @@
+.pageWrapper {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.pageTitle {
+  font-size: 1.6rem;
+  color: var(--text);
+  font-weight: 800;
+}
+
+/* --- Mode Toggle --- */
+.modeToggle {
+  display: flex;
+  background-color: var(--bg);
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light);
+}
+
+.toggleBtn {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggleBtn.active {
+  background-color: var(--bg);
+  color: var(--accent);
+  box-shadow: 3px 3px 6px var(--shadow-dark), 
+             -3px -3px 6px var(--shadow-light);
+}
+
+/* --- Controls Row --- */
+.controlsCard {
+  background-color: var(--bg);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px var(--shadow-dark), 
+             -8px -8px 16px var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.chipsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chipBtn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--bg);
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 4px 4px 8px var(--shadow-dark), 
+             -4px -4px 8px var(--shadow-light);
+  transition: all 0.2s;
+}
+
+.chipBtn.active {
+  color: var(--accent);
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light);
+}
+
+.selectField {
+  appearance: none;
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light);
+  outline: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23528072' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 35px;
+}
+
+.exportBtn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--bg);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 4px 4px 8px var(--shadow-dark), 
+             -4px -4px 8px var(--shadow-light);
+  transition: all 0.2s;
+  align-self: flex-start;
+}
+
+.exportBtn:active {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light);
+}
+
+/* --- Stats & Chart --- */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.statCard {
+  background-color: var(--bg);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), 
+              inset -6px -6px 12px var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.statValue {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.chartCard {
+  background-color: var(--bg);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px var(--shadow-dark), 
+             -8px -8px 16px var(--shadow-light);
+  margin-bottom: 30px;
+}
+
+.chartTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.chartContainer {
+  position: relative;
+  height: 350px;
+  width: 100%;
+}
+
+/* --- Top Consumers Table --- */
+.tableContainer {
+  background-color: var(--bg);
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px var(--shadow-dark), 
+             -8px -8px 16px var(--shadow-light);
+  padding: 25px 0;
+  overflow: hidden;
+}
+
+.tableTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 25px 20px 25px;
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 25px;
+}
+
+.table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 15px 10px;
+  color: var(--text-light);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--shadow-dark);
+}
+
+.table td {
+  padding: 15px 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 1px solid rgba(198, 216, 209, 0.4);
+}
+
+.usageBar {
+  height: 6px;
+  border-radius: 3px;
+  background-color: var(--shadow-dark);
+  margin-top: 6px;
+  overflow: hidden;
+}
+.usageFill { height: 100%; background-color: var(--accent); border-radius: 3px; }
+
+/* Custom Date Modal */
+.dateGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.dateInput {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light);
+  outline: none;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .pageWrapper { padding: 30px; }
+  .headerTop { align-items: center; }
+  .controlsCard { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+  .controlGroup { flex: 1; }
+  .exportBtn { align-self: flex-end; }
+  .statsGrid { grid-template-columns: repeat(3, 1fr); }
+  .dateGrid { grid-template-columns: 1fr 1fr; }
+}

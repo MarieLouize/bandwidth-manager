@@ -1,0 +1,186 @@
+.pageWrapper {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- Action Row (Hidden on Print) --- */
+.topActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.2s;
+  box-shadow: 3px 3px 6px var(--shadow-dark), 
+             -3px -3px 6px var(--shadow-light);
+}
+
+.backBtn:active {
+  box-shadow: inset 2px 2px 4px var(--shadow-dark), 
+              inset -2px -2px 4px var(--shadow-light);
+}
+
+.exportGroup {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.exportBtn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--bg);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 4px 4px 8px var(--shadow-dark), 
+             -4px -4px 8px var(--shadow-light);
+  transition: all 0.2s;
+}
+
+.exportBtn:active:not(:disabled) {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light);
+}
+
+.exportBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --- Document Area --- */
+.documentArea {
+  background-color: var(--bg);
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 12px 12px 24px var(--shadow-dark), 
+             -12px -12px 24px var(--shadow-light);
+}
+
+.docHeader {
+  border-bottom: 3px solid var(--shadow-dark);
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.reportTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.metaGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.85rem;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.metaLabel { color: var(--text-light); text-transform: uppercase; font-weight: 700; font-size: 0.75rem; }
+.metaVal { color: var(--text); font-weight: 600; }
+
+/* --- Summary & Stats --- */
+.summarySection { margin-bottom: 30px; }
+.sectionTitle { font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 15px; border-bottom: 1px solid var(--shadow-dark); padding-bottom: 5px; }
+.summaryText { font-size: 0.95rem; color: var(--text); line-height: 1.6; }
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.statCard {
+  background-color: var(--bg);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light);
+}
+
+.statValue { font-size: 1.6rem; font-weight: 800; color: var(--accent); display: block; }
+.statLabel { font-size: 0.75rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; }
+
+/* --- Charts --- */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.chartContainer {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light);
+}
+
+/* --- Table --- */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light);
+  padding: 10px;
+}
+
+.table { width: 100%; min-width: 600px; border-collapse: collapse; text-align: left; }
+.table th { padding: 12px 10px; color: var(--text-light); font-size: 0.8rem; text-transform: uppercase; border-bottom: 2px solid var(--shadow-dark); cursor: pointer; user-select: none; }
+.table th:hover { color: var(--accent); }
+.table td { padding: 12px 10px; font-size: 0.9rem; font-weight: 500; border-bottom: 1px solid rgba(198, 216, 209, 0.4); }
+.primaryText { font-weight: 700; color: var(--text); }
+
+/* --- Print Styles --- */
+@media print {
+  .topActions { display: none !important; }
+  .pageWrapper { padding: 0; max-width: 100%; }
+  .documentArea { box-shadow: none !important; padding: 0; }
+  .statCard, .chartContainer, .tableWrapper { box-shadow: none !important; border: 1px solid #ddd; }
+  body { background-color: white; }
+  * { color: black !important; }
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .pageWrapper { padding: 30px; }
+  .documentArea { padding: 40px; }
+  .statsGrid { grid-template-columns: repeat(3, 1fr); }
+  .chartsGrid { grid-template-columns: 1fr 1fr; }
+}

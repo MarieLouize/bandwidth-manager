@@ -1,0 +1,214 @@
+.pageWrapper {
+  padding: 20px;
+  max-width: 800px; /* Keep form contained for readability */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 10px;
+  transition: all 0.2s;
+  box-shadow: 3px 3px 6px var(--shadow-dark), 
+             -3px -3px 6px var(--shadow-light);
+}
+
+.backBtn:active {
+  box-shadow: inset 2px 2px 4px var(--shadow-dark), 
+              inset -2px -2px 4px var(--shadow-light);
+}
+
+.pageTitle {
+  font-size: 1.6rem;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.formCard {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-left: 5px;
+}
+
+.inputField {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), 
+              inset -6px -6px 12px var(--shadow-light);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.inputField::placeholder {
+  color: #9cb5ab;
+}
+
+.inputField:focus {
+  box-shadow: inset 8px 8px 16px var(--shadow-dark), 
+              inset -8px -8px 16px var(--shadow-light);
+}
+
+.inputField.error {
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), 
+              inset -6px -6px 12px var(--shadow-light),
+              0 0 0 2px var(--danger);
+}
+
+/* Custom Select styling to match text inputs */
+.selectField {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23528072' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+/* --- Status Toggle --- */
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  padding: 10px 5px;
+}
+
+.toggleLabel {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.toggleTrack {
+  width: 60px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: var(--bg);
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.toggleKnob {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--text-light); /* Gray when inactive */
+  box-shadow: 2px 2px 5px var(--shadow-dark), 
+             -2px -2px 5px var(--shadow-light);
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + .toggleTrack .toggleKnob {
+  left: 34px;
+  background-color: var(--success); /* Green when active */
+}
+
+/* --- Action Buttons --- */
+.actionRow {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 25px;
+  border-top: 2px solid var(--shadow-dark);
+}
+
+.btn {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelBtn {
+  background-color: var(--bg);
+  color: var(--text-light);
+  box-shadow: 4px 4px 8px var(--shadow-dark), 
+             -4px -4px 8px var(--shadow-light);
+}
+
+.cancelBtn:active {
+  box-shadow: inset 2px 2px 4px var(--shadow-dark), 
+              inset -2px -2px 4px var(--shadow-light);
+}
+
+.saveBtn {
+  background-color: var(--accent);
+  color: #fff;
+  box-shadow: 4px 4px 10px rgba(27, 59, 111, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.saveBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 12px rgba(27, 59, 111, 0.4);
+}
+
+.saveBtn:active {
+  transform: translateY(0);
+}
+
+/* --- Desktop Overrides --- */
+@media (min-width: 768px) {
+  .pageWrapper { padding: 30px; }
+  .formGrid { grid-template-columns: 1fr 1fr; }
+  
+  /* Make Full Name span full width on desktop */
+  .fullWidth { grid-column: 1 / -1; }
+}

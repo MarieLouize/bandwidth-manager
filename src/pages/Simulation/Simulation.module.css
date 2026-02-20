@@ -1,0 +1,240 @@
+.pageWrapper {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.pageTitle {
+  font-size: 1.8rem;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.pageSub {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* --- Mode Toggle --- */
+.modeToggle {
+  display: inline-flex;
+  background-color: var(--bg);
+  border-radius: 12px;
+  padding: 5px;
+  margin-bottom: 30px;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light);
+}
+
+.toggleBtn {
+  padding: 10px 24px;
+  border: none;
+  background: transparent;
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggleBtn.active {
+  background-color: var(--bg);
+  color: var(--accent);
+  box-shadow: 4px 4px 8px var(--shadow-dark), 
+             -4px -4px 8px var(--shadow-light);
+}
+
+/* --- Input Area --- */
+.inputSection {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Pre-built Cards */
+.scenarioGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.scenarioCard {
+  background-color: var(--bg);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px var(--shadow-dark), 
+             -8px -8px 16px var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform 0.2s;
+}
+
+.scenarioCard:hover {
+  transform: translateY(-5px);
+}
+
+.cardTitle { font-weight: 800; font-size: 1.1rem; color: var(--text); display: flex; align-items: center; gap: 10px; }
+.cardDesc { font-size: 0.9rem; color: var(--text-light); line-height: 1.5; flex-grow: 1; }
+
+/* Custom Form */
+.customCard {
+  background-color: var(--bg);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px var(--shadow-dark), 
+             -8px -8px 16px var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.inputRow { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.inputGroup { display: flex; flex-direction: column; gap: 8px; }
+.label { font-size: 0.85rem; font-weight: 600; color: var(--text-light); text-transform: uppercase; }
+
+.inputField, .selectField {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), 
+              inset -6px -6px 12px var(--shadow-light);
+  outline: none;
+}
+
+.selectField {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23528072' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.checkboxGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 5px; }
+
+.toggleContainer { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.toggleTrack { width: 40px; height: 20px; border-radius: 20px; background-color: var(--bg); box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light); position: relative; transition: all 0.3s; }
+.toggleKnob { width: 14px; height: 14px; border-radius: 50%; background-color: var(--text-light); box-shadow: 2px 2px 4px var(--shadow-dark), -2px -2px 4px var(--shadow-light); position: absolute; top: 3px; left: 3px; transition: all 0.3s; }
+input[type="checkbox"] { display: none; }
+input[type="checkbox"]:checked + .toggleTrack .toggleKnob { left: 23px; background-color: var(--accent); }
+.toggleLabel { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+
+/* --- Buttons --- */
+.runBtn {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 4px 4px 10px rgba(27, 59, 111, 0.3);
+  transition: all 0.2s;
+}
+.runBtn:active { transform: translateY(2px); box-shadow: 2px 2px 5px rgba(27, 59, 111, 0.4); }
+
+.secondaryBtn {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--bg);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+  transition: all 0.2s;
+}
+.secondaryBtn:active { box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light); }
+
+/* --- Running State --- */
+.progressSection {
+  background-color: var(--bg);
+  padding: 50px 30px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.progressPhase { font-size: 1.2rem; font-weight: 800; color: var(--accent); }
+
+.progressBarContainer {
+  width: 100%;
+  max-width: 600px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: var(--bg);
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: var(--success);
+  border-radius: 20px;
+  transition: width 0.1s linear;
+}
+
+.progressPercent { font-weight: 800; font-size: 2rem; color: var(--text); }
+
+/* --- Results State --- */
+.resultsSection { animation: fadeIn 0.4s ease; display: flex; flex-direction: column; gap: 30px; }
+
+.statsGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+.statCard { background-color: var(--bg); padding: 20px; border-radius: 16px; text-align: center; box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light); }
+.statValue { font-size: 1.6rem; font-weight: 800; color: var(--text); display: block; margin-bottom: 5px; }
+.statLabel { font-size: 0.75rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; }
+
+.chartsGrid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+.chartCard { background-color: var(--bg); padding: 25px; border-radius: 20px; box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light); }
+.chartTitle { font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 20px; border-bottom: 2px solid var(--shadow-dark); padding-bottom: 10px; }
+.chartContainer { position: relative; height: 300px; width: 100%; }
+
+.timelineList { display: flex; flex-direction: column; gap: 15px; }
+.timelineItem { display: flex; gap: 15px; align-items: flex-start; padding: 15px; border-radius: 12px; background-color: var(--bg); box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light); }
+.timelineTime { font-weight: 800; color: var(--accent); font-size: 0.85rem; width: 60px; flex-shrink: 0; }
+.timelineText { font-size: 0.9rem; color: var(--text); line-height: 1.4; }
+
+.resultsActions { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; padding-top: 30px; border-top: 2px solid var(--shadow-dark); }
+
+/* Desktop */
+@media (min-width: 768px) {
+  .pageWrapper { padding: 30px; }
+  .scenarioGrid { grid-template-columns: 1fr 1fr; }
+  .inputRow { grid-template-columns: 1fr 1fr; }
+  .checkboxGrid { grid-template-columns: repeat(4, 1fr); }
+  .statsGrid { grid-template-columns: repeat(4, 1fr); }
+  .chartsGrid { grid-template-columns: 2fr 1fr; } /* Bar chart takes more space than pie */
+  .resultsActions { flex-direction: row; justify-content: flex-end; }
+}

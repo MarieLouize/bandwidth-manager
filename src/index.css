@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Seafoam & Navy Theme Variables */
+  --bg: #E1EFEA;
+  --text: #0F4C3A;
+  --text-light: #528072;
+  --accent: #1B3B6F;
+  --shadow-light: #ffffff;
+  --shadow-dark: #c6d8d1;
+  
+  /* Status Colors adapted for the theme */
+  --success: #288C64;
+  --warning: #D98C14;
+  --danger: #BA3B3B;
+  --danger-bg: #f8d7da;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Global Neumorphic Utilities --- */
+/* You can apply these classes to any div in your React app */
+
+.neu-outset {
+  background-color: var(--bg);
+  box-shadow: 8px 8px 16px var(--shadow-dark), 
+             -8px -8px 16px var(--shadow-light);
+  border-radius: 20px;
+}
+
+.neu-inset {
+  background-color: var(--bg);
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), 
+              inset -6px -6px 12px var(--shadow-light);
+  border-radius: 12px;
+}
