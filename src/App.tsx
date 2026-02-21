@@ -57,6 +57,8 @@ const App: React.FC = () => {
           element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Login />} 
         />
         
+         <Route path="/" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} />
+        
         {/* Core Dashboard */}
         <Route path="/dashboard" element={<ProtectedLayout><Dashboard /></ProtectedLayout>} />
 
