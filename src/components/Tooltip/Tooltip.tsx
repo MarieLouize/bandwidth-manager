@@ -1,4 +1,4 @@
-import React, { useState, type ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { AlertCircle } from 'lucide-react';
 import styles from './Tooltip.module.css';
 
