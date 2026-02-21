@@ -3,7 +3,6 @@ import { Plus, Edit2, Trash2, KeyRound, ShieldAlert } from 'lucide-react';
 import Popup from '../../../components/Popup/Popup';
 import Toast from '../../../components/Toast/Toast';
 import Tooltip from '../../../components/Tooltip/Tooltip';
-import { useAuth } from '../../../context/AuthContext';
 import styles from './AdminAccounts.module.css';
 
 // --- Types & Mock Data ---

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  ArrowLeft, Info, Target, Clock, Activity, Shield, 
+  ArrowLeft, Info, Target, Clock, Shield, 
   X, AlertTriangle, Eye, Save 
 } from 'lucide-react';
 import Tooltip from '../../../components/Tooltip/Tooltip';

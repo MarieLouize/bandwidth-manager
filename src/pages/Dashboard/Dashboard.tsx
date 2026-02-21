@@ -30,7 +30,8 @@ const Dashboard: React.FC = () => {
       setTimeout(() => {
         const newUsage = Math.floor(Math.random() * (95 - 60 + 1)) + 60;
         setUsagePercent(newUsage);
-        setLastUpdated(newDate => new Date().toLocaleTimeString());
+        // FIX: Removed unused parameter 'newDate'
+        setLastUpdated(new Date().toLocaleTimeString());
         setIsRefreshing(false);
       }, 1000); 
 

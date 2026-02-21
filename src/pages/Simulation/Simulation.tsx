@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Play, Square, RefreshCw, Activity, Users, 
-  Download, BarChart2, ShieldAlert, CheckCircle2 
-} from 'lucide-react';
+  Download, BarChart2, ShieldAlert
+} from 'lucide-react'; // FIX: Removed CheckCircle2
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip as ChartTooltip, Legend, ArcElement } from 'chart.js';
 import { Bar, Pie } from 'react-chartjs-2';
 import Toast from '../../components/Toast/Toast';
@@ -44,14 +44,15 @@ const Simulation: React.FC = () => {
 
   // --- Running Logic ---
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    // FIX: Changed type to any for browser compatibility
+    let interval: any; 
     if (simState === 'running') {
       setProgress(0);
       setPhase('Initializing Virtual Network...');
       
       interval = setInterval(() => {
         setProgress(p => {
-          const next = p + 2; // 2% per tick (50 ticks = approx 2.5 seconds total at 50ms)
+          const next = p + 2; 
           
           if (next === 20) setPhase('Injecting Simulated Traffic...');
           if (next === 50) setPhase('Applying QoS Policies...');
@@ -95,7 +96,6 @@ const Simulation: React.FC = () => {
   };
 
   const startSimulation = (users: number, demand: number) => {
-    // We store the parameters temporarily so generateResults can use them deterministically
     window.sessionStorage.setItem('sim_params', JSON.stringify({ users, demand }));
     setSimState('running');
   };
@@ -106,20 +106,18 @@ const Simulation: React.FC = () => {
   };
 
   const generateResults = () => {
-    // Read params to make results semi-deterministic
     const params = JSON.parse(window.sessionStorage.getItem('sim_params') || '{"users": 1000, "demand": 10}');
     const baseBandwidth = (params.users * params.demand);
     
-    // Simulate QoS reduction
     const beforeData = [baseBandwidth * 0.4, baseBandwidth * 0.5, baseBandwidth * 0.8, baseBandwidth * 0.9, baseBandwidth];
-    const afterData = beforeData.map(v => v > 10000 ? 10000 : v * (Math.random() * 0.2 + 0.8)); // Cap at 10Gbps, minor shaping below
+    const afterData = beforeData.map(v => v > 10000 ? 10000 : v * (Math.random() * 0.2 + 0.8)); 
 
-    const droppedPackets = Math.floor(Math.max(0, baseBandwidth - 10000) * 0.15); // Drop % if over capacity
-    const score = droppedPackets > 1000 ? Math.floor(Math.random() * 20 + 40) : Math.floor(Math.random() * 15 + 85); // 40-60 if congested, 85-100 if good
+    const droppedPackets = Math.floor(Math.max(0, baseBandwidth - 10000) * 0.15); 
+    const score = droppedPackets > 1000 ? Math.floor(Math.random() * 20 + 40) : Math.floor(Math.random() * 15 + 85); 
 
     setResults({
-      peakBefore: (Math.max(...beforeData) / 1000).toFixed(2), // Gbps
-      peakAfter: (Math.max(...afterData) / 1000).toFixed(2), // Gbps
+      peakBefore: (Math.max(...beforeData) / 1000).toFixed(2), 
+      peakAfter: (Math.max(...afterData) / 1000).toFixed(2), 
       dropped: droppedPackets.toLocaleString(),
       satisfaction: score,
       barChart: {
@@ -154,7 +152,6 @@ const Simulation: React.FC = () => {
     setToast({ isVisible: true, title: 'Export Generated', message: 'Simulation results downloaded as PDF.', type: 'success' });
   };
 
-  // --- Renders ---
   if (simState === 'running') {
     return (
       <div className={styles.pageWrapper} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '70vh' }}>
@@ -185,7 +182,6 @@ const Simulation: React.FC = () => {
         </div>
 
         <div className={styles.resultsSection}>
-          {/* Stats */}
           <div className={styles.statsGrid}>
             <div className={styles.statCard}>
               <span className={styles.statValue}>{results.peakBefore} <small style={{fontSize:'0.6em'}}>Gbps</small></span>
@@ -205,7 +201,6 @@ const Simulation: React.FC = () => {
             </div>
           </div>
 
-          {/* Charts */}
           <div className={styles.chartsGrid}>
             <div className={styles.chartCard}>
               <h3 className={styles.chartTitle}><BarChart2 size={18} style={{display:'inline', verticalAlign:'bottom'}}/> Policy Effectiveness</h3>
@@ -222,7 +217,6 @@ const Simulation: React.FC = () => {
             </div>
           </div>
 
-          {/* Timeline */}
           <div className={styles.chartCard}>
             <h3 className={styles.chartTitle}><ShieldAlert size={18} style={{display:'inline', verticalAlign:'bottom'}}/> Congestion Events Log</h3>
             <div className={styles.timelineList}>
@@ -249,7 +243,6 @@ const Simulation: React.FC = () => {
     );
   }
 
-  // IDLE STATE (Inputs)
   return (
     <div className={styles.pageWrapper}>
       
@@ -268,7 +261,7 @@ const Simulation: React.FC = () => {
           {SCENARIOS.map(scen => (
             <div key={scen.id} className={styles.scenarioCard}>
               <h3 className={styles.cardTitle}><Activity size={20} color="var(--accent)" /> {scen.name}</h3>
-              <p className={styles.cardDesc}>{scen.desc}</p>
+              <p className={scen.desc}>{scen.desc}</p>
               <div style={{ display: 'flex', gap: '15px', fontSize: '0.85rem', color: 'var(--text-light)', fontWeight: 600 }}>
                 <span><Users size={14} style={{verticalAlign:'middle'}}/> {scen.baseUsers.toLocaleString()} Users</span>
                 <span>Demand: {scen.baseDemand} Mbps/user</span>
